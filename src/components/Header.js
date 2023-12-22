@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import "@fontsource/roboto-mono"; 
 import { FaUser, FaShoppingCart } from 'react-icons/fa';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { AppContext } from '../AppContext';
 import { StyleRoot } from 'radium';
 
@@ -23,8 +24,8 @@ const Header = () => {
       <div style={logoStyle} onClick={() => handleTabClick('home')}>Karo Abhyaash</div>
       <div style={{...navGroupStyle, ...smallScreen}}>
         <ul style={navStyle}>
-          <li style={{...navItemStyle, position: 'relative'}} onClick={handleMenuToggle}>
-            Menu
+          <li style={{...navItemStyle, position: 'relative', flexDirection: 'row', flexWrap: 'nowrap'}} onClick={handleMenuToggle}>
+            Menu{!showMenu ? <IoIosArrowDown style={{height:'0.8em', paddingLeft: '2px'}} /> : <IoIosArrowUp style={{height:'0.8em', paddingLeft: '2px'}} />}
           {showMenu && (
             <div style={menuStyle}>
               <div style={menuItemStyle} onClick={() => handleTabClick('classes')}>Classes</div>
@@ -88,13 +89,16 @@ const menuStyle = {
   top: '100%',
   right: '-20%',
   backgroundColor: '#fff',
-  boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+  border: '1px solid #E5E5E5',
+  borderTop: '3px solid #000',
+ // boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
   zIndex: '1',
 };
 
 const menuItemStyle = {
   padding: '10px',
   borderBottom: '1px solid #E5E5E5',
+  whiteSpace: 'nowrap',
   cursor: 'pointer',
 };
 

@@ -1,9 +1,11 @@
 // components/Snippet/ClassCard.js
 import React from 'react';
 import "@fontsource/roboto-mono"; 
+import {StyleRoot} from 'radium';
 
 const ClassCard = ({ image, title, description }) => {
   return (
+    <StyleRoot>
     <div style={cardStyle}>
       <div style={imageContainerStyle}>
         <img src={image} alt={title} style={imageStyle} />
@@ -18,6 +20,7 @@ const ClassCard = ({ image, title, description }) => {
         </div>      
       </div>
     </div>
+    </StyleRoot>
   );
 };
 
@@ -28,11 +31,17 @@ const cardStyle = {
   display: 'flex',
   paddingBottom: '1rem',
   marginBottom: '1rem',
+  '@media (max-width: 1008px)': {
+    flexDirection: 'column',
+  },
 };
 
 const imageContainerStyle = {
   width: '40%',
   aspectRatio: 16/9,
+  '@media (max-width: 1008px)': {
+    width: '100%',
+  },
 };
 
 const imageStyle = {
@@ -47,6 +56,10 @@ const textContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  '@media (max-width: 1008px)': {
+    width: '100%',
+    padding: '0',
+  },
 };
 
 const titleStyle = {

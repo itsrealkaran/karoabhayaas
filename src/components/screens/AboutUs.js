@@ -55,19 +55,19 @@ const rowStyle = {
   flexDirection: 'row',
   fontFamily: 'Roboto Mono',
   fontSize: '1.2rem',
+  justifyContent: 'space-between',
+  width: '80%',
+  margin: '2rem auto 4rem',
   '@media (max-width: 1000px)': {
     flexDirection: 'column',
     alignItems: 'center',
   },
-  justifyContent: 'space-between',
-  width: '80%',
-  margin: '2rem auto 4rem',
 };
 
 const imageDivStyle = {
   width: '48%',
   '@media (max-width: 1000px)': {
-    width: '50%',
+    width: '90%',
   },
 };
 
@@ -75,14 +75,13 @@ const textDivStyle = {
   width: '48%',
   textAlign: 'justify',
   '@media (max-width: 1000px)': {
-    width: '50%',
+    width: '90%',
   },
 };
 
 const imageStyle = {
   width: '100%',
   height: 'auto',
-  minWidth: '300px',
 };
 
 export default AboutUs;

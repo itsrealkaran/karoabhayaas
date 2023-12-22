@@ -1,12 +1,13 @@
 // components/Home/ReviewCard.js
 import React from 'react';
+import {StyleRoot} from 'radium';
 
 const ReviewCard = ({ name, review }) => {
   return (
-    <div style={cardStyle}>
+    <StyleRoot style={cardStyle}>
       <h3 style={nameStyle}>{name}</h3>
       <p style={reviewStyle}>{review}</p>
-    </div>
+    </StyleRoot>
   );
 };
 
@@ -15,12 +16,17 @@ const cardStyle = {
   backgroundColor: '#f4f4f4',
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   padding: '1.5rem',
-  flex: '0 0 calc(30% - 3rem)', /* Maximum 3 catalogs in one row with 1rem gap */
-  //maxWidth: 'calc(30% - 3rem)', /* Maximum width for the catalogs */
+  flex: '0 0 calc(30% - 3rem)', //for 3 reviews
   margin: '0 10px',
   alignItems: 'flex-start',
   display: 'flex',
   flexDirection: 'column',
+  '@media (max-width: 1180px)': {
+    flex: '0 0 calc(50% - 6rem)',
+  },  
+  '@media (max-width: 640px)': {
+    flex: '0 0 70%',
+  }
 };
 
 const nameStyle = {

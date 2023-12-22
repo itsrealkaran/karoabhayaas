@@ -1,10 +1,10 @@
 // components/Home/TopStudentsContainer.js
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import TopStudentCard from './TopStudentCard';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 const TopStudentsContainer = () => {
-  // Sample data (replace with actual data)
+  // Sample data
   const topStudents = [
     { image: 'https://square-vn.com/app/dscms/assets/images/person-1.jpg', name: 'John Doe', quote: 'Some review submitted by the user about the company' },
     { image: 'https://square-vn.com/app/dscms/assets/images/person-1.jpg', name: 'John Doe', quote: 'Some review submitted by the user about the company' },
@@ -29,7 +29,7 @@ const TopStudentsContainer = () => {
 
   const handleScroll = (direction) => {
     const container = containerRef.current;
-    const scrollAmount = 300; // Adjust the scroll amount as needed
+    const scrollAmount = 320; // Scroll amount to scroll out first card
 
     if (container) {
       if (direction === 'left') {
@@ -82,12 +82,10 @@ const scrollContainerStyle = {
   gap: '3rem',
   overflowX: 'hidden', // Hide the scrollbar
   scrollBehavior: 'smooth',
-  padding: '0 2rem',
   boxSizing: 'border-box',
   position: 'relative',
   maxWidth: 'calc(100% - 4rem)',
-  margin: '0 auto',
-  marginBottom: '2rem',
+  margin: '0 3rem 2rem',
 };
 
 const arrowContainerStyle = {

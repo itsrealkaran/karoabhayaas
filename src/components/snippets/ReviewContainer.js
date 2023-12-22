@@ -41,7 +41,7 @@ const cardsContainerStyle = {
   display: 'flex',
   flexWrap: 'wrap',
   textAlign: 'left',
-  justifyContent: 'space-between',
+  justifyContent: 'space-evenly',
   gap: '1.5rem',
   overflowX: 'auto', // Enable horizontal scrolling if needed
   padding: '0 1rem',

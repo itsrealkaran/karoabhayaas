@@ -16,7 +16,8 @@ const TopStudentCard = ({ image, name, quote }) => {
 
 // Styles
 const cardStyle = {
-  minWidth: '320px',
+  minWidth: '310px',
+  flex: '0 0 25%',
   backgroundColor: '#fff',
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   alignItems: 'flex-start',
