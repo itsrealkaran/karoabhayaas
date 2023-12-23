@@ -1,9 +1,9 @@
 // components/Home/Home.js
-import React from 'react';
-import ImageCarousel from '../snippets/ImageCarousel';
-import TopStudentsContainer from '../snippets/TopStudentsContainer';
-import ReviewContainer from '../snippets/ReviewContainer';
-import Footer from '../Footer';
+import React from "react";
+import ImageCarousel from "../snippets/ImageCarousel";
+import TopStudentsContainer from "../snippets/TopStudentsContainer";
+import ReviewContainer from "../snippets/ReviewContainer";
+import Footer from "../Footer";
 
 const Home = () => {
   return (
@@ -17,8 +17,6 @@ const Home = () => {
 };
 
 // Styles
-const homeContainerStyle = {
-
-};
+const homeContainerStyle = {};
 
 export default Home;

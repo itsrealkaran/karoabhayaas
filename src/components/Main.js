@@ -1,42 +1,36 @@
 // Main/Main.js
-import React, { useContext } from 'react';
-import { AppContext } from '../AppContext';
-import Home from './screens/Home';
-import Classes from './screens/Classes';
-import Products from './screens/Products';
-import AboutUs from './screens/AboutUs';
-import LoginSignup from './screens/LoginSignup';
-import Cart from './screens/Cart';
+import React, { useContext } from "react";
+import { AppContext } from "../AppContext";
+import Home from "./screens/Home";
+import Classes from "./screens/Classes";
+import Products from "./screens/Products";
+import AboutUs from "./screens/AboutUs";
+import LoginSignup from "./screens/LoginSignup";
+import Cart from "./screens/Cart";
 
 const Main = () => {
   const { selectedTab } = useContext(AppContext);
 
   const renderPage = () => {
     switch (selectedTab) {
-      case 'home':
+      case "home":
         return <Home />;
-      case 'classes':
+      case "classes":
         return <Classes />;
-      case 'products':
+      case "products":
         return <Products />;
-      case 'aboutUs':
+      case "aboutUs":
         return <AboutUs />;
-      case 'loginSignup':
+      case "loginSignup":
         return <LoginSignup />;
-      case 'cart':
+      case "cart":
         return <Cart />;
       default:
         return <Home />;
     }
   };
 
-  return (
-    <main>
-      {renderPage()}
-    </main>
-  );
+  return <main>{renderPage()}</main>;
 };
 
 export default Main;
-
-

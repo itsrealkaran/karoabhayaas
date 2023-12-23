@@ -1,24 +1,24 @@
-import React, { useState, useContext } from 'react';
-import { AppContext } from '../../AppContext';
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../AppContext";
 
 const LoginSignup = () => {
   const { login, logout, isLoggedIn } = useContext(AppContext);
   const [loginFormData, setLoginFormData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const [signupFormData, setSignupFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-    otp: '',
+    name: "",
+    email: "",
+    phoneNumber: "",
+    otp: "",
   });
 
-  const [activeForm, setActiveForm] = useState('login');
+  const [activeForm, setActiveForm] = useState("login");
 
   const toggleForm = () => {
-    setActiveForm(activeForm === 'login' ? 'signup' : 'login');
+    setActiveForm(activeForm === "login" ? "signup" : "login");
   };
 
   const handleLoginChange = (e) => {
@@ -62,7 +62,7 @@ const LoginSignup = () => {
         </div>
       ) : (
         <div style={formContainerStyle}>
-          {activeForm === 'login' ? (
+          {activeForm === "login" ? (
             <form onSubmit={handleLoginSubmit} style={formStyle}>
               {/* Login Form JSX */}
               <div style={inputContainerStyle}>
@@ -86,12 +86,15 @@ const LoginSignup = () => {
                 />
               </div>
               <div style={buttonContainer}>
-              <button type="submit" style={buttonStyle}>
-                Login
-              </button>
-              <p>
-                Don't have an account? <span style={linkStyle} onClick={toggleForm}>Signup</span>
-              </p>
+                <button type="submit" style={buttonStyle}>
+                  Login
+                </button>
+                <p>
+                  Don't have an account?{" "}
+                  <span style={linkStyle} onClick={toggleForm}>
+                    Signup
+                  </span>
+                </p>
               </div>
             </form>
           ) : (
@@ -117,22 +120,30 @@ const LoginSignup = () => {
                   style={inputStyle}
                 />
               </div>
-              <div style={{...inputContainerStyle, flexDirection: 'row', marginBottom: '0rem'}}>
+              <div
+                style={{
+                  ...inputContainerStyle,
+                  flexDirection: "row",
+                  marginBottom: "0rem",
+                }}
+              >
                 <input
                   type="tel"
                   name="phoneNumber"
                   placeholder="PHONE NUMBER"
                   value={signupFormData.phoneNumber}
                   onChange={handleSignupChange}
-                  style={{ ...inputStyle, marginRight: '1rem'}}
+                  style={{ ...inputStyle, marginRight: "1rem" }}
                 />
                 <button type="submit" style={buttonStyle}>
                   SEND OTP
                 </button>
               </div>
               <div style={inputContainerStyle}>
-              <p>Didn't receive OTP? <span style={linkStyle}> Resend</span></p>
-              <input
+                <p>
+                  Didn't receive OTP? <span style={linkStyle}> Resend</span>
+                </p>
+                <input
                   type="text"
                   name="otp"
                   placeholder="OTP"
@@ -142,12 +153,15 @@ const LoginSignup = () => {
                 />
               </div>
               <div style={buttonContainer}>
-              <button type="submit" style={buttonStyle}>
-                Signup
-              </button>
-              <p>
-                Already have an account? <span style={linkStyle} onClick={toggleForm}>Login</span>
-              </p>
+                <button type="submit" style={buttonStyle}>
+                  Signup
+                </button>
+                <p>
+                  Already have an account?{" "}
+                  <span style={linkStyle} onClick={toggleForm}>
+                    Login
+                  </span>
+                </p>
               </div>
             </form>
           )}
@@ -159,65 +173,64 @@ const LoginSignup = () => {
 
 // Styles
 const containerStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '100vh',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh",
 };
 
 const formContainerStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '5rem 4rem 2rem',
-  border: '2px solid #eee',
-  justifyContent: 'center',
-  alignItems: 'center',
+  display: "flex",
+  flexDirection: "column",
+  padding: "5rem 4rem 2rem",
+  border: "2px solid #eee",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 const formStyle = {
-  backgroundColor: 'transparent',
+  backgroundColor: "transparent",
 };
 
 const inputContainerStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  margin: '0 0 1rem',
-//  alignItems: 'center',
+  display: "flex",
+  flexDirection: "column",
+  margin: "0 0 1rem",
+  //  alignItems: 'center',
 };
 
 const inputStyle = {
-  fontFamily: 'Roboto Mono, monospace',
-  fontSize: '1rem',
-  width: 'calc(100% - 2rem)',
-  padding: '0.5rem 1rem',
-  border: '2px solid #eee',
+  fontFamily: "Roboto Mono, monospace",
+  fontSize: "1rem",
+  width: "calc(100% - 2rem)",
+  padding: "0.5rem 1rem",
+  border: "2px solid #eee",
 };
 
 const buttonStyle = {
-  fontFamily: 'Roboto Mono, monospace',
-  fontSize: '1rem',
-  backgroundColor: '#000',
-  color: '#fff',
-  textWrap: 'nowrap',
-  padding: '0.5rem 1rem',
-  border: 'none',
-  cursor: 'pointer',
+  fontFamily: "Roboto Mono, monospace",
+  fontSize: "1rem",
+  backgroundColor: "#000",
+  color: "#fff",
+  textWrap: "nowrap",
+  padding: "0.5rem 1rem",
+  border: "none",
+  cursor: "pointer",
 };
 
 const buttonContainer = {
-  display: 'flex',
-  flexDirection: 'column',
-  marginTop: '3rem',
-  justifyContent: 'center',
-  alignItems: 'center',
-//  width: '100%', 
-}
-
-const linkStyle = {
-  color: '#1D7AE7',
-  fontWeight: '600',
-  cursor: 'pointer',
+  display: "flex",
+  flexDirection: "column",
+  marginTop: "3rem",
+  justifyContent: "center",
+  alignItems: "center",
+  //  width: '100%',
 };
 
+const linkStyle = {
+  color: "#1D7AE7",
+  fontWeight: "600",
+  cursor: "pointer",
+};
 
 export default LoginSignup;

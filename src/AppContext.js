@@ -1,15 +1,17 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
 
 export const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
-  const [selectedTab, setSelectedTab] = useState('home');
+  const [selectedTab, setSelectedTab] = useState("home");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const addToCart = (item) => {
-    const existingItemIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
+    const existingItemIndex = cart.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
 
     if (existingItemIndex !== -1) {
       const updatedCart = [...cart];
@@ -19,16 +21,38 @@ const AppContextProvider = ({ children }) => {
       };
       setCart(updatedCart);
     } else {
-      const itemWithOrderCount = { ...item, orderCount: 1, date: new Date().toLocaleString() };
+      const itemWithOrderCount = {
+        ...item,
+        orderCount: 1,
+        date: new Date().toLocaleString("en-IN", { dateStyle: "short" }),
+      };
       setCart([...cart, itemWithOrderCount]);
     }
   };
 
-  const removeFromCart = (itemId) => {
-    setCart(cart.filter((item) => item.id !== itemId));
+  //removeFromCart handles both deletion and decrement of order(tried to create a flexible function)
+  const removeFromCart = (item) => {
+    if (item > -1) {
+      setCart(cart.filter((item1) => item1.id !== item));
+    } else {
+      const existingItemIndex = cart.findIndex(
+        (cartItem) => cartItem.id === item.id
+      );
+
+      if (existingItemIndex !== -1) {
+        if (item.orderCount !== 1) {
+          const updatedCart = [...cart];
+          updatedCart[existingItemIndex] = {
+            ...updatedCart[existingItemIndex],
+            orderCount: updatedCart[existingItemIndex].orderCount - 1,
+          };
+          setCart(updatedCart);
+        }
+      }
+    }
   };
 
-  const handleTabChange = (tab) => {
+  const onTabChange = (tab) => {
     setSelectedTab(tab);
   };
 
@@ -43,11 +67,27 @@ const AppContextProvider = ({ children }) => {
   };
 
   const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.orderCount, 0);
+    return cart.reduce(
+      (total, item) => total + item.price * item.orderCount,
+      0
+    );
   };
 
   return (
-    <AppContext.Provider value={{ user, login, logout, cart, addToCart, removeFromCart, selectedTab, onTabChange: handleTabChange, isLoggedIn, calculateTotal }}>
+    <AppContext.Provider
+      value={{
+        user,
+        login,
+        logout,
+        cart,
+        addToCart,
+        removeFromCart,
+        selectedTab,
+        onTabChange,
+        isLoggedIn,
+        calculateTotal,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
